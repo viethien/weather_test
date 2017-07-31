@@ -7,18 +7,38 @@
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <script type="text/javascript">
 
-    $.ajax({
+    // $.ajax({
+    //   crossOrigin: true,
+    //   type: 'GET' ,
+    //   url: 'http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108',
+    //   dataType : 'text/xml',
+    //   success: function(data) {
+    //
+    //     console.log(data);
+    //   }
+    //
+    // });  //ajax end
 
-      type: 'POST' ,
-      url: 'http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108',
-      dataType : 'xml',
-      success: function(data) {
 
-        console.log(data);
+      // Initialize the Ajax request
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108');
+
+      // Track the state changes of the request
+      xhr.onreadystatechange = function(){
+        // Ready state 4 means the request is done
+        if(xhr.readyState === 4){
+          // 200 is a successful return
+          if(xhr.status === 200){
+            console.log(xhr.responseText); // 'This is the returned text.'
+          }else{
+            console.log('Error: '+xhr.status); // An error occurred during the request
+          }
+        }
       }
 
-    });  //ajax end
-
+      // Send the request to send-ajax-data.php
+      xhr.send(null);
 
     </script>
 
