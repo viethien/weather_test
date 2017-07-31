@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+
+
+      //77개
+      var locations = {
+        '대구시':{
+         "lon":128.35,
+         "lat":35.52
+       },
+        '대전시':{
+         "lon":127.26,
+         "lat":36.20
+       },
+        '마산시':{
+         "lon":128.32,
+         "lat":35.11
+       },
+      //   '목포시':{
+      //    "lon":126.22,
+      //    "lat":34.48
+      //  },
+      //   '예천군':{
+      //    "lon":128.26,
+      //    "lat":36.40
+      //  },
+      //   '옥천군':{
+      //    "lon":127.34,
+      //    "lat":36.20
+      //  },
+      //   '완도군':{
+      //    "lon":126.47,
+      //    "lat":34.18
+      //  },
+      //   '원산':{
+      //    "lon":127.25,
+      //    "lat":39.09
+      //  },
+      //   '원주':{
+      //    "lon":127.58,
+      //    "lat":37.22
+      //  },
+      //   '광양시':{
+      //    "lon":127.34,
+      //    "lat":34.59
+      //  },
+      //   '광주광역시':{
+      //    "lon":125.54,
+      //    "lat":35.09
+      //  },
+      //   '김제시':{
+      //    "lon":128.52,
+      //    "lat":35.38
+      //  },
+      //   '김책':{
+      //    "lon":129.12,
+      //    "lat":40.41
+      //  },
+      //   '김천시':{
+      //    "lon":128.05,
+      //    "lat":36.07
+      //  },
+      //   '김해시':{
+      //    "lon":128.52,
+      //    "lat":35.14
+      //  },
+      //   '군산시':{
+      //    "lon":126.41,
+      //    "lat":35.58
+      //  },
+      //   '군위군':{
+      //    "lon":128.34,
+      //    "lat":36.15
+      //  },
+      //   '금산군':{
+      //    "lon":127.30,
+      //    "lat":36.07
+      //  },
+      //   '사리원':{
+      //    "lon":124.24,
+      //    "lat":40.05
+      //  },
+      //   '삼척시':{
+      //    "lon":129.10,
+      //    "lat":37.27
+      //  },
+      //   '상주시':{
+      //    "lon":128.09,
+      //    "lat":36.26
+      //  },
+      //   '강릉시':{
+      //    "lon":128.54,
+      //    "lat":37.45
+      //  },
+      //   '강계':{
+      //    "lon":126.34,
+      //    "lat":40.58
+      //  },
+      //   '개성':{
+      //    "lon":126.33,
+      //    "lat":37.59
+      //  },
+      //   '경산시':{
+      //    "lon":128.43,
+      //    "lat":35.48
+      //  },
+      //   '강진군':{
+      //    "lon":126.45,
+      //    "lat":34.39
+      //  },
+      //   '강화도':{
+      //    "lon":126.30,
+      //    "lat":37.45
+      //  },
+      //   '고령군':{
+      //    "lon":129.14,
+      //    "lat":35.51
+      //  },
+      //   '고성':{
+      //    "lon":125.23,
+      //    "lat":38.45
+      //  },
+      //   '고흥군':{
+      //    "lon":127.16,
+      //    "lat":34.17
+      //  },
+      //   '공주시':{
+      //    "lon":127.07,
+      //    "lat":36.27
+      //  },
+      //   '서울시':{
+      //    "lon":127.00,
+      //    "lat":37.30
+      //  },
+      //   '수원':{
+      //    "lon":127.01,
+      //    "lat":37.17
+      //  },
+      //   '순천':{
+      //    "lon":125.54,
+      //    "lat":39.26
+      //  },
+      //   '순천시':{
+      //    "lon":127.28,
+      //    "lat":34.57
+      //  },
+      //   '속초시':{
+      //    "lon":128.36,
+      //    "lat":38.12
+      //  },
+      //   '송림':{
+      //    "lon":125.38,
+      //    "lat":38.44
+      //  },
+      //   '신안군':{
+      //    "lon":125.36,
+      //    "lat":39.36
+      //  },
+      //   '양구군':{
+      //    "lon":127.59,
+      //    "lat":38.06
+      //  },
+      //   '양산시':{
+      //    "lon":129.03,
+      //    "lat":35.21
+      //  },
+      //   '양양군':{
+      //    "lon":128.36,
+      //    "lat":38.04
+      //  },
+      //   '양평군':{
+      //    "lon":127.29,
+      //    "lat":37.30
+      //  },
+      //   '안동시':{
+      //    "lon":128.44,
+      //    "lat":36.35
+      //  },
+      //   '안양시':{
+      //    "lon":126.55,
+      //    "lat":37.23
+      //  },
+      //   '무주군':{
+      //    "lon":127.40,
+      //    "lat":36.02
+      //  },
+      //   '남원시':{
+      //    "lon":127.21,
+      //    "lat":35.25
+      //  },
+      //   '남양주시':{
+      //    "lon":126.44,
+      //    "lat":37.14
+      //  },
+      //   '남해군':{
+      //    "lon":127.54,
+      //    "lat":34.50
+      //  },
+      //   '나주시':{
+      //    "lon":126.43,
+      //    "lat":35.03
+      //  },
+      //   '논산시':{
+      //    "lon":127.05,
+      //    "lat":36.12
+      //  },
+      //   '제주시':{
+      //    "lon":126.32,
+      //    "lat":33.31
+      //  },
+      //   '청양군':{
+      //    "lon":128.03,
+      //    "lat":41.11
+      //  },
+      //   '청주시':{
+      //    "lon":125.13,
+      //    "lat":39.41
+      //  },
+      //   '창녕군':{
+      //    "lon":125.16,
+      //    "lat":38.37
+      //  },
+      //   '춘천시':{
+      //    "lon":127.53,
+      //    "lat":37.52
+      //  },
+      //   '충주시':{
+      //    "lon":127.08,
+      //    "lat":35.49
+      //  },
+      //   '의성군':{
+      //    "lon":128.41,
+      //    "lat":36.22
+      //  },
+      //   '의정부시':{
+      //    "lon":127.03,
+      //    "lat":37.44
+      //  },
+      //   '판문점':{
+      //    "lon":125.41,
+      //    "lat":39.02
+      //  },
+      //   '평창군':{
+      //    "lon":129.03,
+      //    "lat":35.06
+      //  },
+      //   '인제군':{
+      //    "lon":128.09,
+      //    "lat":38.05
+      //  },
+      //   '인천시':{
+      //    "lon":126.38,
+      //    "lat":37.28
+      //  },
+      //   '진주시':{
+      //    "lon":128.05,
+      //    "lat":35.11
+      //  },
+      //   '진해시':{
+      //    "lon":128.40,
+      //    "lat":35.09
+      //  },
+      //   '전주시':{
+      //    "lon":127.08,
+      //    "lat":35.49
+      //  },
+      //   '하동군':{
+      //    "lon":127.44,
+      //    "lat":35.05
+      //  },
+      //   '하남시':{
+      //    "lon":126.43,
+      //    "lat":38.23
+      //  },
+      //   '함양군':{
+      //    "lon":127.42,
+      //    "lat":35.32
+      //  },
+      //   '함안군':{
+      //    "lon":128.24,
+      //    "lat":35.15
+      //  },
+      //   '해남군':{
+      //    "lon":126.35,
+      //    "lat":34.34
+      //  },
+      //   '함평군':{
+      //    "lon":126.30,
+      //    "lat":35.05
+      //  },
+      //   '해주':{
+      //    "lon":125.42,
+      //    "lat":38.02
+      //  },
+      //   '함흥':{
+      //    "lon":127.32,
+      //    "lat":39.54
+      //  },
+      //   '혜산':{
+      //    "lon":128.12,
+      //    "lat":41.23
+      //  },
+      //   '홍성군':{
+      //    "lon":126.29,
+      //    "lat":36.36
+      //  },
+      //   '홍천군':{
+      //    "lon":127.52,
+      //    "lat":37.42
+      //  },
+      //   '부산광역시':{
+      //    "lon":129.03,
+      //    "lat":35.06
+      //  }
+
+      }
+
+      // location end
+
+      // var cloud_status = {
+      //   '200' : 'thunderstorm with light rain',
+      //   '201'	: 'thunderstorm with rain',
+      //   '202'	: 'thunderstorm with heavy rain',
+      //   '210'	: 'light thunderstorm',
+      //   '212'	: 'heavy thunderstorm',
+      //   '211'	: 'thunderstorm',
+      //   '221'	: 'ragged thunderstorm',
+      //   '230'	: 'thunderstorm with light drizzle',
+      //   '231'	: 'thunderstorm with drizzle',
+      //   '232'	: 'thunderstorm with heavy drizzle',
+      //
+      //   '300'	: 'light intensity drizzle',
+      //   '301'	: 'Drizzle',
+      //   '302'	: 'heavy intensity drizzle',
+      //   '310'	: 'light intensity drizzle rain',
+      //   '311'	: 'drizzle rain',
+      //   '312'	: 'heavy intensity drizzle rain',
+      //   '313'	: 'shower rain and drizzle',
+      //   '314'	: 'heavy shower rain and drizzle',
+      //   '321'	: 'shower drizzle',
+      //
+      //   '500'	: 'light rain',
+      //   '501'	: 'moderate rain',
+      //   '502'	: 'heavy intensity rain',
+      //   '503'	: 'very heavy rain',
+      //   '504'	: 'extreme rain',
+      //   '511'	: 'freezing rain',
+      //   '520'	: 'light intensity shower rain',
+      //   '521'	: 'shower rain',
+      //   '522'	: 'heavy intensity shower rain',
+      //   '531'	: 'ragged shower rain',
+      //
+      //   '600'	: 'light snow',
+      //   '601'	: 'Snow',
+      //   '602'	: 'heavy snow',
+      //   '611'	: 'Sleet',
+      //   '612'	: 'shower sleet',
+      //   '615'	: 'light rain and snow',
+      //   '616'	: 'rain and snow',
+      //   '620'	: 'light shower snow',
+      //   '621'	: 'shower snow',
+      //   '622'	: 'heavy shower snow',
+      //
+      //   '701'	: 'Mist',
+      //   '711'	: 'Smoke',
+      //   '721'	: 'Haze',
+      //   '731'	: 'Sand/Dust Whirls',
+      //   '741'	: 'Fog',
+      //   '751'	: 'Sand',
+      //   '761'	: 'Dust',
+      //   '762'	: 'VOLCANIC ASH',
+      //   '771'	: 'SQUALLS',
+      //   '781'	: 'TORNADO',
+      //
+      //   '800'	: 'sky is clear',
+      //   '801'	: 'few clouds',
+      //   '802'	: 'scattered clouds',
+      //   '803'	: 'broken clouds',
+      //   '804'	: 'overcast clouds',
+      //
+      //   '900'	: 'Tornado',
+      //   '901'	: 'tropical storm',
+      //   '902'	: 'Hurricane',
+      //   '903'	: 'Cold',
+      //   '904'	: 'Hot',
+      //   '905'	: 'Windy',
+      //   '906'	: 'Hail',
+      //   '950'	: 'Setting',
+      //   '951'	: 'Calm',
+      //   '952'	: 'Light breeze',
+      //   '953'	: 'Gentle Breeze',
+      //   '954'	: 'Moderate breeze',
+      //   '955'	: 'Fresh Breeze',
+      //   '956'	: 'Strong breeze',
+      //   '957'	: 'High wind, near gale',
+      //   '958'	: 'Gale',
+      //   '959'	: 'Severe Gale',
+      //   '960'	: 'Storm',
+      //   '961'	: 'Violent Storm',
+      //   '962' :'Hurricane',
+      // }
+
+      var weathers = [];
+
+
+      function getWorldWeather(){
+
+
+        for(var location_name in locations){
+          // console.log(i);
+
+          $.ajax({
+
+            type: 'GET' ,
+            headers : {
+              "appKey" : "06110e9f-0792-32ee-9cb9-6b1bba593ab6",
+            },
+            url: 'http://apis.skplanetx.com/gweather/forecast/mid?timezone=KST&lon='+ locations[location_name].lon  +'&lat='+ locations[location_name].lat +'&units=&version=1' ,
+            // url: 'http://apis.skplanetx.com/gweather/forecast/mid?timezone=KST&lon='+ 129.03  +'&lat='+ 35.06 +'&units=&version=1' ,
+            dataType : 'json' ,
+            success: function(data) {
+              var local_weather = [];
+
+              // console.log(data);
+              // var local = data['gweather']['forecastDays'][0]['location']['city'];
+              var local = location_name;
+              var sunrise = data['gweather']['forecastDays'][0]['sun']['rise'];
+              var sunset = data['gweather']['forecastDays'][0]['sun']['set'];
+
+              var date ="";
+              // var weather ="";
+              // var low_tem = 0;
+              // var high_tem = 0;
+              var humidity = 0;
+
+              // console.log("=============================================");
+              // console.log('local : ' + local);
+              // console.log('sunrise : ' + sunrise);
+              // console.log('sunset : ' + sunset);
+              // console.log("=============================================");
+
+              for(var j = 0 ; j < 10 ; j++){
+
+                var date_weather = new Object();
+
+                date = data['gweather']['forecastDays'][0]['forecast'][j]['time'];
+                weather = data['gweather']['forecastDays'][0]['forecast'][j]['sky']['code'];
+                low_tem = data['gweather']['forecastDays'][0]['forecast'][j]['temperature']['tmin'];
+                high_tem = data['gweather']['forecastDays'][0]['forecast'][j]['temperature']['tmax'];
+                humidity = data['gweather']['forecastDays'][0]['forecast'][j]['humidity'];
+
+
+                // console.log("date : " + date);
+                // console.log("weather : " + cloud_status[weather]);
+                // console.log("low_tem : " + Math.round(low_tem));
+                // console.log("high_tem : " + Math.round(high_tem));
+                // console.log("humidity : " + Math.round(humidity));
+                // console.log("-------------------------");
+
+                //정보담을 배열 생성 및 추가
+
+
+                date_weather.date = date;
+                date_weather.local = local;
+                date_weather.sunrise = sunrise;
+                date_weather.sunset = sunset;
+                date_weather.humidity = humidity;
+
+
+                local_weather.push(date_weather);
+
+              } //for end
+
+              weathers[local] = local_weather;
+              // console.log("forecast : "+data['gweather']['forecastDays'][0]['forecast'].length);
+
+            }
+
+          });  //ajax end
+
+        } //for end
+
+      }
+
+
+      function getLocalWeather(){
+
+        for(var location_name in locations){
+          // console.log(i);
+          // console.log(location_name);
+
+
+          $.ajax({
+
+            type: 'GET' ,
+            headers : {
+              "appKey" : "06110e9f-0792-32ee-9cb9-6b1bba593ab6",
+            },
+            url: 'http://apis.skplanetx.com/weather/forecast/6days?version=1&lat='+ locations[location_name].lat +'&lon='+ locations[location_name].lon +'&foretxt=N' ,
+            // url: 'http://apis.skplanetx.com/weather/forecast/6days?version=1&lat='+ 37.42 +'&lon='+ 127.52 +'&foretxt=N' ,
+            dataType : 'json' ,
+            success: function(data) {
+              var local_weather = [];
+
+              console.log(data);
+
+              var local = location_name;
+
+              var date = data['weather']['forecast6days'][0]['timeRelease'];  //2017-6-12 18:00:00 형식으로 생김
+              var weather_am_code ="";
+              var weather_pm_code ="";
+              var weather_am ="";
+              var weather_pm ="";
+              var low_tem = 0;
+              var high_tem = 0;
+
+
+              console.log("=============================================");
+              console.log('local : ' + local);
+
+
+              for(var j = 2 ; j < 11 ; j++){ //2일 부터 10일까지 있음
+
+                // var date_weather = new Object();
+
+                weather_am_code = data['weather']['forecast6days'][0]['sky']['amCode'+j+'day'];
+                weather_am = data['weather']['forecast6days'][0]['sky']['amName'+j+'day'];
+                weather_pm_code = data['weather']['forecast6days'][0]['sky']['pmCode'+j+'day'];
+                weather_pm = data['weather']['forecast6days'][0]['sky']['pmName'+j+'day'];
+
+                high_tem = data['weather']['forecast6days'][0]['temperature']['tmax'+j+'day'];
+                low_tem = data['weather']['forecast6days'][0]['temperature']['tmin'+j+'day'];
+
+
+                console.log("date : " + date);
+                console.log("weather_am : " + weather_am + "/" + weather_am_code);
+                console.log("weather_pm : " + weather_pm + "/" + weather_pm_code);
+                console.log("low_tem : " + low_tem);
+                console.log("high_tem : " + high_tem);
+                console.log("-------------------------");
+
+              } //for end
+
+              console.log("=============================================");
+
+            } //success end
+
+          });  //ajax end
+
+        } //for end
+
+      }
+
+      // getWorldWeather();
+      getLocalWeather();
+
+    </script>
+
+  </head>
+  <body>
+
+
+    <div class="weather">
+
+    </div>
+
+
+
+  </body>
+</html>

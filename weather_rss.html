@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>기상청 rss</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+
+    $.ajax({
+
+      type: 'POST' ,
+      url: 'http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108',
+      dataType : 'xml',
+      success: function(data) {
+
+        console.log(data);
+      }
+
+    });  //ajax end
+
+
+    </script>
+
+  </head>
+  <body>
+
+
+
+  </body>
+</html>
