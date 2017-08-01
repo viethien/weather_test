@@ -6,26 +6,122 @@
 
 
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./weather.css">
+
     <script type="text/javascript">
 
 
       //77개
       var locations = {
-        '대구시':{
+        '대구':{
+         "elocal":'daegu',
          "lon":128.35,
          "lat":35.52
        },
-        '대전시':{
+        '대전':{
+         "elocal":'daejeon',
          "lon":127.26,
          "lat":36.20
        },
-        '마산시':{
-         "lon":128.32,
-         "lat":35.11
-       },
-      //   '목포시':{
+      //  '목포':{
+      //    "elocal":'mokpo',
       //    "lon":126.22,
       //    "lat":34.48
+      //  },
+      //  '광주':{
+      //    "elocal":'gwangju',
+      //    "lon":125.54,
+      //    "lat":35.09
+      //  },
+      //  '강릉':{
+      //    "elocal":'gangneung',
+      //    "lon":128.54,
+      //    "lat":37.45
+      //  },
+      //  '서울':{
+      //    "elocal":'seoul',
+      //    "lon":127.00,
+      //    "lat":37.30
+      //  },
+      //  '수원':{
+      //    "elocal":'suwon',
+      //    "lon":127.01,
+      //    "lat":37.17
+      //  },
+      //  '안동':{
+      //    "elocal":'andong',
+      //    "lon":128.44,
+      //    "lat":36.35
+      //  },
+      //  '제주':{
+      //    "elocal":'jeju',
+      //    "lon":126.32,
+      //    "lat":33.31
+      //  },
+      //  '청주':{
+      //    "elocal":'cheongju',
+      //    "lon":125.13,
+      //    "lat":39.41
+      //  },
+      //  '인천':{
+      //    "elocal":'incheon',
+      //    "lon":126.38,
+      //    "lat":37.28
+      //  },
+      //  '전주':{
+      //    "elocal":'jeonju',
+      //    "lon":127.08,
+      //    "lat":35.49
+      //  },
+      //  '부산':{
+      //    "elocal":'busan',
+      //    "lon":129.03,
+      //    "lat":35.06
+      //  },
+      //  '춘천':{
+      //    "elocal":'chuncheon',
+      //    "lon":127.53,
+      //    "lat":37.52
+      //  },
+      //  '서산':{
+      //    "elocal":'seosan',
+      //    "lon":126.45,
+      //    "lat":36.78
+      //  },
+      //  '포항':{
+      //    "elocal":'pohang',
+      //    "lon":129.36,
+      //    "lat":36.02
+      //  },
+      //  '울산':{
+      //    "elocal":'ulsan',
+      //    "lon":129.27,
+      //    "lat":35.54
+      //  },
+      //  '여수':{
+      //    "elocal":'yeosu',
+      //    "lon":127.66,
+      //    "lat":34.76
+      //  },
+      //  '창원':{
+      //    "elocal":'changwon',
+      //    "lon":127.62,
+      //    "lat":35.18
+      //  },
+      //  '울릉':{
+      //    "elocal":'ulleung',
+      //    "lon":130.85,
+      //    "lat":37.50
+      //  },
+
+
+
+      //   '마산시':{
+      //    "lon":128.32,
+      //    "lat":35.11
       //  },
       //   '예천군':{
       //    "lon":128.26,
@@ -50,10 +146,6 @@
       //   '광양시':{
       //    "lon":127.34,
       //    "lat":34.59
-      //  },
-      //   '광주광역시':{
-      //    "lon":125.54,
-      //    "lat":35.09
       //  },
       //   '김제시':{
       //    "lon":128.52,
@@ -95,10 +187,6 @@
       //    "lon":128.09,
       //    "lat":36.26
       //  },
-      //   '강릉시':{
-      //    "lon":128.54,
-      //    "lat":37.45
-      //  },
       //   '강계':{
       //    "lon":126.34,
       //    "lat":40.58
@@ -134,14 +222,6 @@
       //   '공주시':{
       //    "lon":127.07,
       //    "lat":36.27
-      //  },
-      //   '서울시':{
-      //    "lon":127.00,
-      //    "lat":37.30
-      //  },
-      //   '수원':{
-      //    "lon":127.01,
-      //    "lat":37.17
       //  },
       //   '순천':{
       //    "lon":125.54,
@@ -179,10 +259,6 @@
       //    "lon":127.29,
       //    "lat":37.30
       //  },
-      //   '안동시':{
-      //    "lon":128.44,
-      //    "lat":36.35
-      //  },
       //   '안양시':{
       //    "lon":126.55,
       //    "lat":37.23
@@ -211,25 +287,13 @@
       //    "lon":127.05,
       //    "lat":36.12
       //  },
-      //   '제주시':{
-      //    "lon":126.32,
-      //    "lat":33.31
-      //  },
       //   '청양군':{
       //    "lon":128.03,
       //    "lat":41.11
       //  },
-      //   '청주시':{
-      //    "lon":125.13,
-      //    "lat":39.41
-      //  },
       //   '창녕군':{
       //    "lon":125.16,
       //    "lat":38.37
-      //  },
-      //   '춘천시':{
-      //    "lon":127.53,
-      //    "lat":37.52
       //  },
       //   '충주시':{
       //    "lon":127.08,
@@ -255,10 +319,6 @@
       //    "lon":128.09,
       //    "lat":38.05
       //  },
-      //   '인천시':{
-      //    "lon":126.38,
-      //    "lat":37.28
-      //  },
       //   '진주시':{
       //    "lon":128.05,
       //    "lat":35.11
@@ -266,10 +326,6 @@
       //   '진해시':{
       //    "lon":128.40,
       //    "lat":35.09
-      //  },
-      //   '전주시':{
-      //    "lon":127.08,
-      //    "lat":35.49
       //  },
       //   '하동군':{
       //    "lon":127.44,
@@ -315,14 +371,58 @@
       //    "lon":127.52,
       //    "lat":37.42
       //  },
-      //   '부산광역시':{
-      //    "lon":129.03,
-      //    "lat":35.06
-      //  }
+
 
       }
 
       // location end
+
+      var cloud_status = {
+        'SKY_W00':{
+          'weather':'상태없음',
+          'icon':38,
+        },
+        'SKY_W01':{
+          'weather':'맑음',
+          'icon':1,
+        },
+        'SKY_W02':{
+          'weather':'구름조금',
+          'icon':2,
+        },
+        'SKY_W03':{
+          'weather':'구름많음',
+          'icon':3,
+        },
+        'SKY_W04':{
+          'weather':'흐림',
+          'icon':18,
+        },
+        'SKY_W07':{
+          'weather':'흐리고 비',
+          'icon':21,
+        },
+        'SKY_W09':{
+          'weather':'구름많고 비',
+          'icon':12,
+        },
+        'SKY_W10':{
+          'weather':'소나기',
+          'icon':21,
+        },
+        'SKY_W11':{
+          'weather':'비 또는 눈',
+          'icon':4,
+        },
+        'SKY_W12':{
+          'weather':'구름많고 눈',
+          'icon':13,
+        },
+        'SKY_W13':{
+          'weather':'흐리고 눈',
+          'icon':32,
+        }
+      }
 
       // var cloud_status = {
       //   '200' : 'thunderstorm with light rain',
@@ -414,7 +514,6 @@
 
 
         for(var location_name in locations){
-          // console.log(i);
 
           $.ajax({
 
@@ -491,11 +590,11 @@
 
 
       function getLocalWeather(){
+        var local_weathers = [];
+
 
         for(var location_name in locations){
-          // console.log(i);
           // console.log(location_name);
-
 
           $.ajax({
 
@@ -506,14 +605,21 @@
             url: 'http://apis.skplanetx.com/weather/forecast/6days?version=1&lat='+ locations[location_name].lat +'&lon='+ locations[location_name].lon +'&foretxt=N' ,
             // url: 'http://apis.skplanetx.com/weather/forecast/6days?version=1&lat='+ 37.42 +'&lon='+ 127.52 +'&foretxt=N' ,
             dataType : 'json' ,
+            async:false,  //동기 처리를 하기위함 - 비동기처리로 인해 location_name을 가져오는데 문제가생겼기때문
             success: function(data) {
-              var local_weather = [];
-
-              console.log(data);
+              // console.log(data);
 
               var local = location_name;
+              var elocal = locations[location_name].elocal;
 
-              var date = data['weather']['forecast6days'][0]['timeRelease'];  //2017-6-12 18:00:00 형식으로 생김
+              var local_weather = new Object();
+
+
+              var date = data['weather']['forecast6days'][0]['timeRelease'].split(' ');  //2017-6-12 18:00:00 형식으로 생김
+              var date_arr = date[0].split('-');
+              var new_date = new Date( date_arr[0],date_arr[1],date_arr[2] );
+              new_date.setDate(new_date.getDate() + 1); //오늘이 8월1일이면  예보시작이 8월 3일임 (이틀 후)
+
               var weather_am_code ="";
               var weather_pm_code ="";
               var weather_am ="";
@@ -521,13 +627,15 @@
               var low_tem = 0;
               var high_tem = 0;
 
-
-              console.log("=============================================");
-              console.log('local : ' + local);
-
+              local_weather.local = local;
+              local_weather.elocal = elocal;
+              var day_local_weathers = [];
 
               for(var j = 2 ; j < 11 ; j++){ //2일 부터 10일까지 있음
 
+                var day_local_weather = new Object();
+                //날짜 연산
+                new_date.setDate(new_date.getDate() + 1);
                 // var date_weather = new Object();
 
                 weather_am_code = data['weather']['forecast6days'][0]['sky']['amCode'+j+'day'];
@@ -538,17 +646,25 @@
                 high_tem = data['weather']['forecast6days'][0]['temperature']['tmax'+j+'day'];
                 low_tem = data['weather']['forecast6days'][0]['temperature']['tmin'+j+'day'];
 
+                day_local_weather.date = new_date.getFullYear() + "/" + new_date.getMonth() + "/" + new_date.getDate();
+                day_local_weather.weather_am = weather_am_code;
+                day_local_weather.weather_pm = weather_pm_code;
+                day_local_weather.low_tem = low_tem;
+                day_local_weather.high_tem = high_tem;
 
-                console.log("date : " + date);
-                console.log("weather_am : " + weather_am + "/" + weather_am_code);
-                console.log("weather_pm : " + weather_pm + "/" + weather_pm_code);
-                console.log("low_tem : " + low_tem);
-                console.log("high_tem : " + high_tem);
-                console.log("-------------------------");
+                day_local_weathers.push(day_local_weather);
+                // console.log("date : " + new_date.getFullYear() + "/" + new_date.getMonth() + "/" + new_date.getDate() );
+                // console.log("weather_am : " + weather_am + "/" + weather_am_code);
+                // console.log("weather_pm : " + weather_pm + "/" + weather_pm_code);
+                // console.log("low_tem : " + low_tem);
+                // console.log("high_tem : " + high_tem);
+                // console.log("-------------------------");
 
               } //for end
 
-              console.log("=============================================");
+              local_weather.weahter = day_local_weathers;
+              local_weathers.push(local_weather);
+              // console.log("=============================================");
 
             } //success end
 
@@ -556,10 +672,28 @@
 
         } //for end
 
+
+        console.log(local_weathers);
+
+        setLocalWeather(local_weathers);
+
       }
+
+      function setLocalWeather(local_weathers){
+
+        for(var index in local_weathers){
+
+
+
+
+        }
+
+      }
+
 
       // getWorldWeather();
       getLocalWeather();
+
 
     </script>
 
@@ -571,6 +705,124 @@
 
     </div>
 
+    <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#weather">지역 선택</button>
+
+<!-- Modal -->
+<div id="weather" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="weather_map">
+
+          <div id="map_marker">
+
+            <dl class="marker incheon">
+              <dt>인천</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker seoul">
+              <dt>서울</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker chuncheon">
+              <dt>춘천</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker gangneung">
+              <dt>강릉</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker suwon">
+              <dt>수원</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker seosan">
+              <dt>서산</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker cheongju">
+              <dt>청주</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker andong">
+              <dt>안동</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker daejeon">
+              <dt>대전</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker jeonju">
+              <dt>전주</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker daegu">
+              <dt>대구</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker pohang">
+              <dt>포항</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker ulsan">
+              <dt>울산</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker mokpo">
+              <dt>목포</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker gwangju">
+              <dt>광주</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker yeosu">
+              <dt>여수</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker changwon">
+              <dt>창원</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker busan">
+              <dt>부산</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker ulleung">
+              <dt>울릉도</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+            <dl class="marker jeju">
+              <dt>제주도</dt>
+              <dd class="weather_img"></dd>
+            </dl>
+
+
+          </div>
+          <img id="korea_map" src="./img/korea_map2.png" alt=""></img>
+
+        </div>
+        <div class="weather_info">
+          정보
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
   </body>
